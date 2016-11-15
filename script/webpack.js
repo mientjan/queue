@@ -11,7 +11,7 @@ var baseConfig = require('../config/webpack.config.dist');
 
 var umd = baseConfig();
 umd.output.libraryTarget = "umd";
-umd.output.filename = "./dist/seng-signals-umd.js";
+umd.output.filename = "./dist/queue-umd.js";
 
 var umdMin = baseConfig();
 umdMin.output.libraryTarget = "umd";

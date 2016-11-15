@@ -7,6 +7,8 @@ import "ts-helpers";
 // Interfaces should be ignored, as they don't export any code.
 export {Queue} from './lib/Queue';
 export {QueueItem} from './lib/QueueItem';
+export {AnimationQueueItem} from './lib/AnimationQueueItem';
+export {AnimationQueue} from './lib/AnimationQueue';
 // export {Signal1} from './lib/Signal1';
 // export {Signal2} from './lib/Signal2';
 // export {Signal3} from './lib/Signal3';

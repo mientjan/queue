@@ -33,7 +33,8 @@ module.exports = function()
 					query: {
 						tsconfig: 'config/tsconfig.test.json'
 					}
-				}
+				},
+				// { test: /\.ts?$/, loader: 'ts-loader' }
 			],
 			postLoaders: [
 				/**

@@ -2,7 +2,7 @@ import {Queue} from "./Queue";
 import {AnimationQueueItem} from "./AnimationQueueItem";
 import {modulo} from "./modulo";
 
-export class AnimationQueue extends Queue
+export class AnimationQueue extends Queue<AnimationQueueItem>
 {
 	protected frame:number = 0;
 
@@ -18,47 +18,62 @@ export class AnimationQueue extends Queue
 
 	public current:AnimationQueueItem = null;
 
-	constructor(fps:number, unit:number = 1000)
+	constructor(fps:number = 24, unit:number = 1000)
 	{
 		super();
 		this._fpms = unit / fps;
 	}
 
-
-	public tick(delta:number):void
+	public add(item: AnimationQueueItem): this
 	{
-		var time = this._time += delta;
+		if(!this.hasNext())
+		{
+			this.frame = item.from;
+		}
 
-		if(this.current != null)
+		super.add(item);
+		return this;
+	}
+
+	public addTime(delta:number):void
+	{
+		this._time += delta;
+		this.calculateFrame();
+	}
+
+	public setTime(time:number):void
+	{
+		this._time = time;
+		this.calculateFrame();
+	}
+
+	protected calculateFrame():void
+	{
+		var time = this._time;
+
+		if(this.current != null || this.next() != null)
 		{
 			var current = this.current;
 			var from = current.from;
-			var duration = current.duration;
+			var duration = Math.abs(current.duration);
+			var to = current.to;
 			var times = current.times;
 			var frame = (duration * time / (duration * this._fpms));
 
 			if(times != -1 && times - (frame / duration) < 0)
 			{
-
+				this.next();
 			} else {
-				this.frame = from + (frame % duration);
+
+				if(from < to)
+				{
+					this.frame = from + modulo(frame,duration);
+				} else {
+					this.frame = from + modulo(-frame,-duration);
+
+				}
 			}
 		}
-		//
-		// if((this.current != null || this.next() != null) )
-		// {
-		// 	var current = this.current;
-		// 	var from = current.from;
-		// 	var duration = current.duration;
-		// 	var times = current.times;
-		// 	var frame = (duration * time / (duration * this._fpms));
-		//
-		// 	if(times > -1 && times - (frame / duration) < 0) {
-		// 		this.next();
-		// 	} else {
-		// 		this.frame = from + modulo(frame,duration);
-		// 	}
-		// }
 	}
 
 	public hasStopped():boolean
@@ -75,9 +90,14 @@ export class AnimationQueue extends Queue
 		return next;
 	}
 
-	public getFrame():number
+	public getFrameFloat():number
 	{
 		return this.frame;
+	}
+
+	public getFrame():number
+	{
+		return Math.round(this.frame);
 	}
 
 	protected reset():void

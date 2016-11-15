@@ -8,15 +8,16 @@
     "preserveConstEnums": true,
     "noImplicitAny": false,
     "removeComments": false,
-    "sourceMap": false,
-    "inlineSourceMap": true,
+    "sourceMap": true,
+    "inlineSourceMap": false,
     "forceConsistentCasingInFileNames": true,
-    "noEmitHelpers": false,
+    "noEmitHelpers":false,
     "strictNullChecks": false,
     "noImplicitReturns": true,
     "noImplicitThis": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true
+
   },
   "files": [
     "../definition/index.d.ts"

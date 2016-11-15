@@ -16,12 +16,12 @@ export class AnimationQueueItem extends QueueItem
 	{
 		super();
 
-		if(from >= 0)
+		if(from < 0)
 		{
 			throw new Error('from can only be equal or greater than 0');
 		}
 
-		if(to >= 0)
+		if(to < 0)
 		{
 			throw new Error('to can only be equal or greater than 0');
 		}

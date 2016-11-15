@@ -5,13 +5,13 @@ import {Queue} from "./Queue";
 export class QueueItem
 {
 	public complete:Signal = new Signal();
-	private _queue:Queue = null;
+	private _queue:Queue<any> = null;
 
 	constructor()
 	{
 	}
 
-	public setQueue(queue:Queue):void
+	public setQueue(queue:Queue<any>):void
 	{
 		this._queue = queue;
 	}

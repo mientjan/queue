@@ -3,12 +3,47 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Seng Boilerplate example</title>
-	<script type="text/javascript" src="dist/seng-boilerplate.js"></script>
+	<script type="text/javascript" src="./dist/queue.js"></script>
 </head>
 <body>
 <script>
-	// Library is exposed on the window as SengBoilerplate
-	console.log(SengBoilerplate);
+	console.log(Queue);
+	var queueItem = new Queue.AnimationQueueItem('', 20, 10, -1, 0);
+	var queue = new Queue.AnimationQueue();
+	queue.add(queueItem);
+
+	console.log(queue.getFrameFloat());
+	queue.addTime(1000/14);
+	console.log(queue.getFrameFloat());
+	queue.addTime(1000/14);
+	console.log(queue.getFrameFloat());
+	queue.addTime(1000/14);
+	console.log(queue.getFrameFloat());
+	queue.addTime(1000/14);
+	console.log(queue.getFrameFloat());
+	queue.addTime(1000/14);
+	console.log(queue.getFrameFloat());
+	queue.addTime(1000/14);
+	console.log(queue.getFrameFloat());
+	queue.addTime(1000/14);
+	console.log(queue.getFrameFloat());
+	queue.addTime(1000/14);
+	console.log(queue.getFrameFloat());
+	queue.addTime(1000/14);
+	console.log(queue.getFrameFloat());
+	queue.addTime(1000/14);
+	console.log(queue.getFrameFloat());
+	queue.addTime(1000/14);
+	console.log(queue.getFrameFloat());
+	queue.addTime(1000/14);
+	console.log(queue.getFrameFloat());
+	queue.addTime(1000/14);
+	console.log(queue.getFrameFloat());
+	queue.addTime(1000/14);
+	console.log(queue.getFrameFloat());
+
+
+
 </script>
 </body>
 </html>

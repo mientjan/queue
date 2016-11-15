@@ -9,7 +9,7 @@
     "noImplicitAny": false,
     "removeComments": false,
     "sourceMap": false,
-    "inlineSourceMap": false,
+    "inlineSourceMap": true,
     "forceConsistentCasingInFileNames": true,
     "noEmitHelpers": true,
     "strictNullChecks": false,

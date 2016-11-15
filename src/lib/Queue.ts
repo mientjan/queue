@@ -1,11 +1,11 @@
-import {QueueItem} from "./QueueItem";
-export class Queue
+export class Queue<T extends any>
 {
-	private _list:Array<QueueItem> = [];
-	private _listLength:number = 0;
-	public current:QueueItem = null;
+	protected _list:Array<T> = [];
+	protected _listLength:number = 0;
 
-	public add(item:QueueItem):this
+	public current:T = null;
+
+	public add(item:T):this
 	{
 		item.setQueue(this);
 
@@ -15,7 +15,7 @@ export class Queue
 		return this;
 	}
 
-	public next():QueueItem
+	public next():T
 	{
 		if(this.current)
 		{
