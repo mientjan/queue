@@ -6,7 +6,7 @@
   "scripts": {
     "prepublish": "npm run build:npm",
     "test": "npm-run-all test:*",
-    "test:unit": "karma start --single-run --browsers PhantomJS",
+    "test:unit": "karma start karma.conf.js",
     "test:unit:dev": "karma start karma.conf.dev.js",
     "validate": "npm-run-all -p validate:webpack lint test:unit -s validate:coverage",
     "validate:webpack": "webpack-validator config/webpack.config.dist.js && webpack-validator config/webpack.config.test.js",
@@ -24,8 +24,8 @@
     "doc": "npm-run-all -p doc:*",
     "doc:typedoc": "typedoc --out doc/typedoc/ src/**/*",
     "generate": "npm-run-all clean compile test:unit doc",
-    "build": "npm-run-all clean compile",
     "dev": "node script/webpack-dev.js",
+    "build": "npm-run-all clean compile",
     "build:npm": "npm-run-all test compile:npm",
     "build:dist": "npm-run-all clean:dist compile:dist:**"
   },
@@ -88,6 +88,7 @@
     "istanbul-instrumenter-loader": "^0.2.0",
     "karma": "^0.13.22",
     "karma-chai": "^0.1.0",
+    "karma-chrome-launcher": "^2.0.0",
     "karma-coverage": "^1.0.0",
     "karma-mocha": "^1.1.1",
     "karma-mocha-reporter": "^2.2.0",
