@@ -120,6 +120,6 @@
     "webpack-validator": "^2.1.3"
   },
   "dependencies": {
-    "seng-signals": "^1.0.5"
+    "seng-signals": "^1.1.2"
   }
 }
