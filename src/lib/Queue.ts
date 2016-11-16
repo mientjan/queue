@@ -17,11 +17,6 @@ export class Queue<T extends any>
 
 	public next():T
 	{
-		if(this.current)
-		{
-
-		}
-
 		if(this._listLength > 0)
 		{
 			this.current = this._list.shift();

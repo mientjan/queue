@@ -4,6 +4,10 @@ import {modulo} from "./modulo";
 
 export class AnimationQueue extends Queue<AnimationQueueItem>
 {
+	public current:AnimationQueueItem = null;
+
+	protected _fpms:number = 0;
+	protected _time:number = 0;
 	protected frame:number = 0;
 
 	/**
@@ -12,11 +16,6 @@ export class AnimationQueue extends Queue<AnimationQueueItem>
 	 * @type {boolean}
 	 */
 	private _freeze:boolean = false;
-
-	protected _time:number = 0;
-	protected _fpms:number = 0;
-
-	public current:AnimationQueueItem = null;
 
 	constructor(fps:number = 24, unit:number = 1000)
 	{
@@ -71,7 +70,7 @@ export class AnimationQueue extends Queue<AnimationQueueItem>
 				} else {
 					// console.log(from, -frame, -duration - 1, modulo(-frame,-duration - 1));
 
-					this.frame = from + modulo(-frame,-duration - 1);
+					this.frame = from + modulo(-frame, -duration - 1);
 
 				}
 			}
