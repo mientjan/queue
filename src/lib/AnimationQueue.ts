@@ -67,9 +67,11 @@ export class AnimationQueue extends Queue<AnimationQueueItem>
 
 				if(from < to)
 				{
-					this.frame = from + modulo(frame,duration);
+					this.frame = from + modulo(frame, duration + 1);
 				} else {
-					this.frame = from + modulo(-frame,-duration);
+					// console.log(from, -frame, -duration - 1, modulo(-frame,-duration - 1));
+
+					this.frame = from + modulo(-frame,-duration - 1);
 
 				}
 			}

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "prepublish": "npm run build:npm",
-    "test": "npm-run-all test:*",
+    "test": "npm-run-all compile:npm test:*",
     "test:unit": "karma start karma.conf.js",
     "test:unit:dev": "karma start karma.conf.dev.js",
     "validate": "npm-run-all -p validate:webpack lint test:unit -s validate:coverage",

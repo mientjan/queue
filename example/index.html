@@ -8,40 +8,27 @@
 <body>
 <script>
 	console.log(Queue);
-	var queueItem = new Queue.AnimationQueueItem('', 20, 10, -1, 0);
+	var queueItem = new Queue.AnimationQueueItem('', 0, 10, -1, 0);
 	var queue = new Queue.AnimationQueue();
 	queue.add(queueItem);
 
-	console.log(queue.getFrameFloat());
-	queue.addTime(1000/14);
-	console.log(queue.getFrameFloat());
-	queue.addTime(1000/14);
-	console.log(queue.getFrameFloat());
-	queue.addTime(1000/14);
-	console.log(queue.getFrameFloat());
-	queue.addTime(1000/14);
-	console.log(queue.getFrameFloat());
-	queue.addTime(1000/14);
-	console.log(queue.getFrameFloat());
-	queue.addTime(1000/14);
-	console.log(queue.getFrameFloat());
-	queue.addTime(1000/14);
-	console.log(queue.getFrameFloat());
-	queue.addTime(1000/14);
-	console.log(queue.getFrameFloat());
-	queue.addTime(1000/14);
-	console.log(queue.getFrameFloat());
-	queue.addTime(1000/14);
-	console.log(queue.getFrameFloat());
-	queue.addTime(1000/14);
-	console.log(queue.getFrameFloat());
-	queue.addTime(1000/14);
-	console.log(queue.getFrameFloat());
-	queue.addTime(1000/14);
-	console.log(queue.getFrameFloat());
-	queue.addTime(1000/14);
-	console.log(queue.getFrameFloat());
+	var fpms = 1000/24;
+	var time = fpms * i;
+	console.group('start')
 
+	queue.setTime(416.66666666666663);
+		console.log('frame', queue.getFrame());
+		console.groupEnd();
+	for(var i = 0; i < 10; i++)
+	{
+		var time = fpms * i;
+		console.group('index-', i)
+		console.log('time', time);
+		console.log('frame', time / fpms % 11);
+		queue.setTime(time);
+		console.log('frame', queue.getFrame());
+		console.groupEnd();
+	}
 
 
 </script>
